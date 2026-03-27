@@ -25,6 +25,7 @@ client_scripts {
     "pedinteractions/client.lua",
     "propplacer/client.lua",
     "main/client.lua",
+    "utils/vehicleData.lua",
     "utils/tpToCoords.lua",
     "caseopening/client.lua"
 }
