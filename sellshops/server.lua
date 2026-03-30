@@ -83,6 +83,6 @@ local function openShop(src, id)
         return
     end
 
-    bridge.inv.openStash(src, shopId)
+    bridge.inv.forceOpenStash(src, shopId)
 end
 exports("OpenSellShop", openShop)
