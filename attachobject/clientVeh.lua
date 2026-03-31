@@ -31,10 +31,12 @@ local function createObject(netId, data)
         SetEntityCompletelyDisableCollision(obj, data[7][3], data[7][4])
     end
 
+    local boneIndex = ((type(data[3]) == "number") and data[3] or GetEntityBoneIndexByName(entity, data[3]))
+
     AttachEntityToEntity(
         obj,
         entity,
-        GetEntityBoneIndexByName(entity, data[3]),
+        boneIndex,
         data[4].x, data[4].y, data[4].z,
         data[5].x, data[5].y, data[5].z,
         true,
@@ -71,10 +73,12 @@ local function reattachObject(netId, objectId, data)
     local obj = vehiclesToObjects[netId][objectId]?.entity
     if not obj or not DoesEntityExist(obj) then return end
 
+    local boneIndex = ((type(data[3]) == "number") and data[3] or GetEntityBoneIndexByName(entity, data[3]))
+
     AttachEntityToEntity(
         obj,
         entity,
-        GetEntityBoneIndexByName(entity, data[3]),
+        boneIndex,
         data[4].x, data[4].y, data[4].z,
         data[5].x, data[5].y, data[5].z,
         true,
