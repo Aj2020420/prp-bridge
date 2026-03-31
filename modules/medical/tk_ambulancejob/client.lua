@@ -20,6 +20,13 @@ if bridge.name == bridge.currentResource then
         TriggerServerEvent("prp-bridge:server:died")
         TriggerEvent("prp-bridge:client:died")
     end)
+
+    AddStateBagChangeHandler('isInLastStand', ('player:%s'):format(cache.serverId), function(_bagName, _key, value)
+        if not value then return end
+
+        TriggerServerEvent("prp-bridge:server:died")
+        TriggerEvent("prp-bridge:client:died")
+    end)
 end
 
 return medical
